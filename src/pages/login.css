@@ -1,0 +1,644 @@
+/* ============================================================
+   Écran de connexion KALATI Chat
+   Carte flottante sur un fond bicolore, panneau affiche à gauche,
+   formulaire à droite. Les couleurs viennent des tokens CAMRAIL.
+   ============================================================ */
+
+.kl-stage {
+  position: relative;
+  /* take the full viewport to allow reliable sizing calculations */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+/* ------------------------------------------------ fond bicolore */
+
+.kl-backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.kl-backdrop__left {
+  position: absolute;
+  inset: 0 50% 0 0;
+  background: var(--camrail-red-700);
+}
+
+.kl-blob {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--camrail-red-700);
+}
+
+.kl-blob--top {
+  width: 34vw;
+  height: 34vw;
+  top: -17vw;
+  right: -6vw;
+}
+
+.kl-blob--bottom {
+  width: 30vw;
+  height: 30vw;
+  bottom: -16vw;
+  right: 6vw;
+  background: transparent;
+  border: 3vw solid var(--camrail-red-700);
+}
+
+/* ------------------------------------------------ carte */
+
+.kl-card {
+  position: relative;
+  z-index: 1;
+  width: min(940px, 100%);
+  display: grid;
+  grid-template-columns: 1.08fr 1fr;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 30px 90px rgba(32, 30, 29, 0.18);
+  overflow: hidden;
+  animation: kl-card-in 620ms cubic-bezier(0.16, 0.84, 0.28, 1) both;
+}
+
+/* Keep the card within the viewport so it never forces a page scroll.
+   Allow its column children to shrink by resetting their min-height. */
+.kl-card {
+  align-items: stretch;
+  max-height: calc(100vh - (var(--space-6) * 2));
+}
+
+@keyframes kl-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.985);
+  }
+}
+
+/* ------------------------------------------------ panneau affiche */
+
+.kl-poster {
+  position: relative;
+  isolation: isolate;
+  /* allow the poster column to shrink inside the card; remove fixed large min-height
+     so languages with longer text don't push the whole page taller */
+  min-height: 0;
+  padding: var(--space-7) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--camrail-red-400);
+  color: #fff;
+  overflow: hidden;
+}
+
+.kl-poster__content {
+  position: relative;
+  z-index: 2;
+  animation: kl-rise 700ms cubic-bezier(0.16, 0.84, 0.28, 1) both 180ms;
+}
+
+.kl-poster__title {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(30px, 3.2vw, 44px);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  color: #fff;
+  text-wrap: balance;
+}
+
+.kl-poster__title-sub {
+  font-weight: 600;
+  font-size: 0.78em;
+  color: rgba(255, 255, 255, 0.94);
+}
+
+.kl-poster__body {
+  margin-top: var(--space-5);
+  max-width: 40ch;
+  font-size: var(--text-md);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@keyframes kl-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+/* ------------------------------------------------ décor géométrique */
+
+.kl-decor {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.kl-decor > span {
+  position: absolute;
+  opacity: 0;
+  animation: kl-fade-in 900ms ease-out both;
+}
+
+@keyframes kl-fade-in {
+  to { opacity: 1; }
+}
+
+.kl-ring {
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+}
+
+.kl-ring--tl {
+  width: 150px;
+  height: 150px;
+  top: -58px;
+  left: 46px;
+  background: #fff;
+  border-color: #fff;
+  box-shadow: 0 0 0 6px var(--camrail-red-400), 0 0 0 9px rgba(255, 255, 255, 0.9);
+  animation-delay: 260ms;
+}
+
+.kl-pill {
+  width: 54px;
+  height: 150px;
+  top: -34px;
+  left: 320px;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: 999px;
+  animation-delay: 340ms;
+}
+
+.kl-ring--sm {
+  width: 42px;
+  height: 42px;
+  top: 146px;
+  right: 88px;
+  display: grid;
+  place-items: center;
+  border-width: 2px;
+  animation-delay: 420ms;
+}
+
+.kl-ring--sm::after {
+  content: '';
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.kl-dot--pale {
+  width: 22px;
+  height: 22px;
+  top: 92px;
+  right: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.72);
+  animation-delay: 480ms;
+}
+
+.kl-ball {
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, #ff7a70, var(--camrail-red-600));
+}
+
+.kl-ball--a {
+  width: 46px;
+  height: 46px;
+  bottom: 148px;
+  left: 62px;
+  animation-delay: 560ms;
+}
+
+.kl-ball--b {
+  width: 34px;
+  height: 34px;
+  bottom: 62px;
+  right: 74px;
+  animation-delay: 620ms;
+}
+
+.kl-ring--br {
+  width: 260px;
+  height: 260px;
+  bottom: -152px;
+  right: -34px;
+  border-width: 3px;
+  animation-delay: 300ms;
+}
+
+.kl-ring--br::after {
+  content: '';
+  position: absolute;
+  inset: 30px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+/* Dérive lente : le décor respire sans distraire de la saisie. */
+@media (prefers-reduced-motion: no-preference) {
+  .kl-ring--tl,
+  .kl-ring--br { animation-name: kl-fade-in, kl-drift-y; animation-duration: 900ms, 11s; animation-timing-function: ease-out, ease-in-out; animation-iteration-count: 1, infinite; }
+  .kl-pill { animation-name: kl-fade-in, kl-drift-x; animation-duration: 900ms, 14s; animation-timing-function: ease-out, ease-in-out; animation-iteration-count: 1, infinite; }
+  .kl-ball--a,
+  .kl-ball--b,
+  .kl-dot--pale,
+  .kl-ring--sm { animation-name: kl-fade-in, kl-float; animation-duration: 900ms, 8s; animation-timing-function: ease-out, ease-in-out; animation-iteration-count: 1, infinite; }
+}
+
+@keyframes kl-drift-y {
+  50% { transform: translateY(14px); }
+}
+
+@keyframes kl-drift-x {
+  50% { transform: translateX(12px); }
+}
+
+@keyframes kl-float {
+  50% { transform: translate(-8px, -12px); }
+}
+
+/* ------------------------------------------------ formulaire */
+
+.kl-form {
+  position: relative;
+  padding: var(--space-4) var(--space-5) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  background: var(--color-surface);
+}
+
+/* allow the form column to shrink to match the poster column height,
+   and scroll inside itself so an error message can never be cut off */
+.kl-form {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.kl-form__top {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: calc(var(--space-4) * -1);
+}
+
+.kl-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  animation: kl-rise 640ms cubic-bezier(0.16, 0.84, 0.28, 1) both 240ms;
+}
+
+.kl-brand__tile {
+  display: grid;
+  place-items: center;
+  width: 132px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+
+.kl-brand__tile img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.kl-brand__app {
+  margin-top: var(--space-3);
+  font-size: var(--text-xs);
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.kl-brand__app span {
+  color: var(--color-text-muted);
+}
+
+.kl-brand__welcome {
+  margin-top: var(--space-1, 4px);
+  font-size: clamp(22px, 2.1vw, 27px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.kl-brand__lead {
+  margin-top: var(--space-2);
+  width: 100%;
+  max-width: none;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  text-wrap: pretty;
+  color: var(--color-text-muted);
+}
+
+.kl-fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  animation: kl-rise 640ms cubic-bezier(0.16, 0.84, 0.28, 1) both 340ms;
+}
+
+.kl-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.kl-field > label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.kl-input {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-3);
+  min-height: 48px;
+  background: var(--color-surface);
+  border: var(--hairline) solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.kl-input:focus-within {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
+.kl-input__icon {
+  flex: 0 0 auto;
+  color: var(--color-accent);
+}
+
+.kl-input input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font: inherit;
+  font-size: var(--text-md);
+  color: var(--color-text);
+  padding: var(--space-3) 0;
+}
+
+.kl-input input::placeholder {
+  color: var(--color-text-faint);
+}
+
+.kl-input__reveal {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: transparent;
+  color: var(--color-text-faint);
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.kl-input__reveal:hover {
+  color: var(--color-accent);
+}
+
+.kl-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.kl-remember {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  user-select: none;
+}
+
+.kl-remember input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.kl-remember__box {
+  width: 18px;
+  height: 18px;
+  border: var(--rule) solid var(--color-border-strong);
+  display: grid;
+  place-items: center;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.kl-remember__box::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  transform: scale(0);
+  transition: transform 0.15s ease;
+}
+
+.kl-remember input:checked + .kl-remember__box {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.kl-remember input:checked + .kl-remember__box::after {
+  transform: scale(1);
+}
+
+.kl-remember input:focus-visible + .kl-remember__box {
+  outline: var(--rule) solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.kl-reset {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-accent-text);
+  cursor: help;
+}
+
+.kl-error {
+  margin: calc(var(--space-1, 4px) * -1) 0;
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-danger-soft);
+  border-left: var(--rule) solid var(--color-danger);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--camrail-red-800);
+}
+
+.kl-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  min-height: 50px;
+  border: 0;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: var(--text-md);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background-color 0.16s ease, transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.kl-submit:hover:not(:disabled) {
+  background: var(--color-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(216, 48, 43, 0.32);
+}
+
+.kl-submit:active:not(:disabled) {
+  background: var(--color-accent-active);
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.kl-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.kl-submit__spin {
+  width: 15px;
+  height: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: kl-spin 0.7s linear infinite;
+}
+
+@keyframes kl-spin {
+  to { transform: rotate(360deg); }
+}
+
+.kl-foot {
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.kl-foot strong {
+  color: var(--color-accent-text);
+}
+
+.kl-notice {
+  padding-top: var(--space-2);
+  border-top: var(--hairline) solid var(--color-border);
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  color: var(--color-text-faint);
+}
+
+/* ------------------------------------------------ responsive */
+
+@media (max-width: 980px) {
+  .kl-stage {
+    padding: 0;
+    align-items: stretch;
+  }
+
+  .kl-backdrop__left {
+    inset: 0 0 62% 0;
+  }
+
+  .kl-blob--top,
+  .kl-blob--bottom { display: none; }
+
+  .kl-card {
+    grid-template-columns: 1fr;
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .kl-poster {
+    min-height: 0;
+    padding: var(--space-6) var(--space-5);
+    gap: var(--space-5);
+  }
+
+  .kl-poster__body { display: none; }
+
+  /* En colonne, le panneau est court : on ne garde que le décor
+     qui ne peut pas venir sous le texte. */
+  .kl-decor .kl-pill,
+  .kl-decor .kl-ring--br,
+  .kl-decor .kl-ball--a,
+  .kl-decor .kl-dot--pale { display: none; }
+
+  .kl-decor .kl-ring--tl {
+    width: 104px;
+    height: 104px;
+    top: -46px;
+    left: auto;
+    right: -26px;
+    box-shadow: 0 0 0 5px var(--camrail-red-400), 0 0 0 7px rgba(255, 255, 255, 0.9);
+  }
+
+  .kl-decor .kl-ring--sm {
+    top: auto;
+    bottom: 18px;
+    right: 26px;
+  }
+
+  .kl-decor .kl-ball--b {
+    bottom: 26px;
+    right: 84px;
+  }
+
+  .kl-form { padding: var(--space-5); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kl-card,
+  .kl-poster__content,
+  .kl-brand,
+  .kl-fields,
+  .kl-decor > span {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Autocomplétion Chromium : le fond bleu par défaut casse la charte. */
+.kl-input input:-webkit-autofill,
+.kl-input input:-webkit-autofill:hover,
+.kl-input input:-webkit-autofill:focus,
+.kl-input input:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--color-text);
+  -webkit-background-clip: text;
+  caret-color: var(--color-text);
+  box-shadow: none;
+  transition: background-color 100000s ease 0s;
+}

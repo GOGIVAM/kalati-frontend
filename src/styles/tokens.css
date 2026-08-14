@@ -1,0 +1,142 @@
+:root {
+  /* --- Couleurs CAMRAIL -------------------------------------------------
+     Rouge relevé sur le logo CAMRAIL (#d8302b) et sa rampe tonale.
+     Une seule couleur d'accent : le reste est de l'encre sur fond clair. */
+  --camrail-red: #d8302b;
+  --camrail-red-100: #fdecea;
+  --camrail-red-200: #f9c6c2;
+  --camrail-red-300: #f09a94;
+  --camrail-red-400: #e56159;
+  --camrail-red-500: #d8302b;
+  --camrail-red-600: #b8231f;
+  --camrail-red-700: #931b17;
+  --camrail-red-800: #6d1411;
+  --camrail-red-900: #490d0b;
+
+  --color-accent: var(--camrail-red-500);
+  --color-accent-hover: var(--camrail-red-600);
+  --color-accent-active: var(--camrail-red-700);
+  --color-accent-soft: var(--camrail-red-100);
+  --color-accent-text: var(--camrail-red-700);
+
+  --color-bg: #faf9f7;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f2efec;
+  --color-surface-sunken: #faf9f9;
+  --color-text: #201e1d;
+  --color-text-muted: #6b6664;
+  --color-text-faint: #97918e;
+  --color-divider: #201e1d;
+  --color-border: #d6d2d0;
+  --color-border-strong: #201e1d;
+  --color-hover: rgba(32, 30, 29, 0.07);
+  --color-hover-strong: rgba(32, 30, 29, 0.12);
+
+  --color-success: #1f7a44;
+  --color-success-soft: #e6f2ea;
+  --color-warning: #a8690a;
+  --color-warning-soft: #fbf0dd;
+  --color-danger: var(--camrail-red-600);
+  --color-danger-soft: var(--camrail-red-100);
+  --color-info: #1f5673;
+  --color-info-soft: #e5eef3;
+
+  /* --- Typographie ---------------------------------------------------- */
+  --font-body: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-heading: var(--font-body);
+  --font-mono: ui-monospace, 'SFMono-Regular', 'Cascadia Mono', Consolas, monospace;
+
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-md: 15px;
+  --text-base: 15px;
+  --text-lg: 18px;
+  --text-xl: 22px;
+  --text-2xl: 28px;
+  --text-3xl: 36px;
+
+  /* --- Espacement ----------------------------------------------------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* --- Structure ------------------------------------------------------ */
+  --radius: 10px;
+  --radius-sm: 8px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+  --rule: 2px;
+  --hairline: 1px;
+  --shadow-sm: 0 1px 2px rgba(32, 30, 29, 0.05);
+  --shadow-md: 0 4px 14px rgba(32, 30, 29, 0.07);
+  --shadow-lg: 0 12px 36px rgba(32, 30, 29, 0.12);
+
+  --nav-height: 60px;
+  --rail-width: 252px;
+  --shell-gap: 0px;
+  --panel-width: 400px;
+  --content-max: 820px;
+}
+
+/* --- Thème sombre : mêmes rouges, encre inversée ---------------------- */
+
+:root[data-theme='dark'] {
+  --color-accent: #e8534d;
+  --color-accent-hover: #f06a64;
+  --color-accent-active: #f58b86;
+  --color-accent-soft: #3a1c1a;
+  --color-accent-text: #f5a29d;
+
+  --color-bg: #191817;
+  --color-surface: #232120;
+  --color-surface-alt: #2b2827;
+  --color-surface-sunken: #1f1e1d;
+  --color-text: #f2efec;
+  --color-text-muted: #b0a9a5;
+  --color-text-faint: #8a8380;
+  --color-divider: #f2efec;
+  --color-border: #3a3634;
+  --color-border-strong: #55504d;
+  --color-hover: rgba(255, 255, 255, 0.09);
+  --color-hover-strong: rgba(255, 255, 255, 0.16);
+
+  --color-success: #6ec48d;
+  --color-success-soft: #1d2f24;
+  --color-warning: #e0ab4f;
+  --color-warning-soft: #33280f;
+  --color-danger: #ef6b64;
+  --color-danger-soft: #3a1c1a;
+  --color-info: #7fb6d6;
+  --color-info-soft: #17262e;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Densité et taille du texte -------------------------------------- */
+
+:root[data-density='compact'] {
+  --space-3: 10px;
+  --space-4: 13px;
+  --space-5: 18px;
+  --space-6: 24px;
+}
+
+:root[data-text-size='small'] {
+  --text-sm: 12px;
+  --text-md: 14px;
+  --text-base: 14px;
+}
+
+:root[data-text-size='large'] {
+  --text-sm: 14px;
+  --text-md: 16px;
+  --text-base: 17px;
+  --text-lg: 20px;
+}
