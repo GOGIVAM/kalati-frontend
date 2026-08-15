@@ -1,7 +1,19 @@
-# KALATI Chat — Frontend React
+# kalati-frontend — Interface React
 
-Interface agent du système de Recherche et Génération Augmentée (RAG) agentique de CAMRAIL.
+> Dépôt : **[GOGIVAM/kalati-frontend](https://github.com/GOGIVAM/kalati-frontend)**
+
+Interface agent du système de Recherche et Génération Augmentée (RAG) agentique de CAMRAIL.  
 SPA React destinée au réseau intranet CAMRAIL, sans accès Internet en production.
+
+## Dépôts du projet
+
+| Composant | Dépôt | Description |
+|-----------|-------|-------------|
+| **Ce dépôt** | [kalati-frontend](https://github.com/GOGIVAM/kalati-frontend) | SPA React — chat, bibliothèque, administration |
+| API Gateway | [kalati-backend](https://github.com/GOGIVAM/kalati-backend) | Backend .NET — JWT, RBAC, audit |
+| Service IA | [kalati-chat-moteur](https://github.com/GOGIVAM/kalati-chat-moteur) | Pipeline RAG Python |
+
+---
 
 ## Stack
 
