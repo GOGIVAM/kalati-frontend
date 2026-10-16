@@ -1,9 +1,16 @@
-import { defineConfig } from 'vite';
+import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import { fileURLToPath, URL } from 'node:url';
 
-export default defineConfig({
-  plugins: [react()],
+/** Build de démonstration : charge l'API simulée avant le bundle. */
+const demoMock = (): Plugin => ({
+  name: 'kalati-demo-mock',
+  transformIndexHtml: (html) =>
+    html.replace('<head>', '<head><script src="/demo/mock-api.js"></script>'),
+});
+
+export default defineConfig(({ mode }) => ({
+  plugins: mode === 'demo' ? [react(), demoMock()] : [react()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
@@ -26,4 +33,4 @@ export default defineConfig({
       },
     },
   },
-});
+}));

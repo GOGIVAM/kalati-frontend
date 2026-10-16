@@ -158,6 +158,14 @@ export function MetricsPage() {
               />
             </div>
 
+            {import.meta.env.MODE === 'demo' ? (
+              <p className="k-notice">
+                Démo : ces indicateurs sont recalculés à chaque affichage à partir du journal
+                d'audit simulé de cette démonstration (questions et agents fictifs). Ce ne sont
+                pas des mesures de performance du système ; aucune évaluation RAGAS n'est affichée.
+              </p>
+            ) : null}
+
             <p className="k-notice">
               {t('metrics.thresholds', {
                 faithfulness: formatScore(env.faithfulnessThreshold, locale),

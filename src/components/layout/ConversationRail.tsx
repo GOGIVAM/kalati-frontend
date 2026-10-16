@@ -123,7 +123,7 @@ export function ConversationRail() {
       aria-label={t('nav.conversations')}
     >
       <header className="k-rail__brand">
-        {collapsed ? null : <img className="k-rail__logo" src="/logo1.png" alt="CAMRAIL" />}
+        {collapsed ? null : <img className="k-rail__logo" src="/logo.png" alt="KALATI" />}
         <button
           type="button"
           className="k-rail__collapse"

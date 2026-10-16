@@ -10,6 +10,13 @@ import { useLocale } from '@/hooks/useLocale';
 import type { Locale } from '@/types';
 import './login.css';
 
+/** Comptes fictifs servis par l'API simulée du build de démonstration. */
+const DEMO_ACCOUNTS = [
+  { matricule: 'AG-01001', label: 'Agent de maîtrise, maintenance' },
+  { matricule: 'AU-02002', label: 'Auditeur' },
+  { matricule: 'AD-03003', label: 'Administrateur' },
+];
+
 /** Décor géométrique du panneau gauche — purement ornemental. */
 function PosterDecor() {
   return (
@@ -106,7 +113,7 @@ export function LoginPage() {
 
           <div className="kl-brand">
             <span className="kl-brand__tile">
-              <img src="/logo1.png" alt="CAMRAIL" />
+              <img src="/logo.png" alt="KALATI" />
             </span>
             <p className="kl-brand__app">{t('app.tagline')}</p>
             <h2 className="kl-brand__welcome">{t('auth.welcome')}</h2>
@@ -185,6 +192,29 @@ export function LoginPage() {
             </p>
 
             <p className="kl-notice">{t('auth.notice')}</p>
+
+            {import.meta.env.MODE === 'demo' ? (
+              <div className="kl-demo" role="group" aria-label="Comptes de démonstration">
+                <p className="kl-demo__title">Comptes de démonstration (fictifs)</p>
+                {DEMO_ACCOUNTS.map((account) => (
+                  <button
+                    key={account.matricule}
+                    type="button"
+                    className="kl-demo__account"
+                    onClick={() => {
+                      setMatricule(account.matricule);
+                      setPassword('demo');
+                    }}
+                  >
+                    <strong>{account.matricule}</strong> · {account.label}
+                  </button>
+                ))}
+                <p className="kl-demo__hint">
+                  Simulation pédagogique : le moteur RAG est simulé dans le navigateur sur un
+                  corpus fictif, ce n'est pas le modèle déployé.
+                </p>
+              </div>
+            ) : null}
           </form>
         </section>
       </div>

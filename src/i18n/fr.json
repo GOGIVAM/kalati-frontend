@@ -1,9 +1,9 @@
 {
   "app": {
     "name": "Assistant documentaire",
-    "suffix": "CAMRAIL",
-    "tagline": "Assistant documentaire CAMRAIL",
-    "client": "CAMRAIL — Cameroon Railways",
+    "suffix": "KALATI",
+    "tagline": "Assistant documentaire KALATI",
+    "client": "Démonstration · exploitant ferroviaire fictif",
     "intranet": "Périmètre intranet — aucun flux sortant"
   },
   "nav": {
@@ -24,7 +24,7 @@
   "auth": {
     "title": "Connexion",
     "welcome": "Bon retour !",
-    "lead": "Accès réservé aux agents CAMRAIL depuis le réseau intranet.",
+    "lead": "Démo : choisissez un compte fictif ci-dessous (tout mot de passe est accepté).",
     "matricule": "Matricule",
     "matriculePlaceholder": "Saisissez votre matricule",
     "password": "Mot de passe",
@@ -43,30 +43,30 @@
     "notice": "Vos échanges sont journalisés de manière chaînée à des fins d'audit. Questions et réponses ne sont conservées que sous forme hachée.",
     "posterTitleLine1": "UNE RÉPONSE SOURCÉE",
     "posterTitleLine2": "À CHAQUE QUESTION MÉTIER",
-    "posterBody": "Interrogez la documentation interne de CAMRAIL en langage naturel.",
+    "posterBody": "Interrogez une documentation ferroviaire interne en langage naturel.",
     "posterFoot": "Maintenance · Transport · RH · Juridique · Finance · Commercial"
   },
   "transparency": {
     "title": "Comment fonctionne KALATI",
-    "p1": "KALATI est un assistant documentaire. Il recherche des extraits dans la documentation interne de CAMRAIL, puis rédige une réponse en s'appuyant exclusivement sur ces extraits. Aucune donnée ne sort du réseau intranet.",
+    "p1": "KALATI est un assistant documentaire. Il recherche des extraits dans la documentation interne indexée, puis rédige une réponse en s'appuyant exclusivement sur ces extraits. Aucune donnée ne sort du réseau intranet.",
     "p2": "Les réponses sont générées par intelligence artificielle et peuvent comporter des erreurs. Elles doivent être vérifiées auprès des sources citées avant toute décision engageante.",
     "p3": "Vous ne verrez que des réponses fondées sur des documents relevant de votre grade et de votre département. Lorsque les sources sont insuffisantes, KALATI refuse de répondre plutôt que d'inventer.",
     "p4": "Chaque interaction est journalisée (horodatage, grade, département, empreintes de la question et de la réponse) dans un registre chaîné et vérifiable.",
     "accept": "J'ai compris",
     "reopen": "Revoir la notice de transparence",
-    "banner": "Réponses générées par IA à partir de la documentation CAMRAIL. À vérifier auprès des sources citées avant toute décision engageante.",
+    "banner": "Réponses générées par IA à partir de la documentation indexée. À vérifier auprès des sources citées avant toute décision engageante.",
     "bannerAction": "En savoir plus"
   },
   "chat": {
     "newConversation": "Nouvelle conversation",
     "emptyTitle": "Posez votre question",
-    "emptyBody": "En français ou en anglais, en langage naturel. L'assistant recherche dans la documentation CAMRAIL indexée puis cite ses sources.",
+    "emptyBody": "En français ou en anglais, en langage naturel. L'assistant recherche dans la documentation indexée puis cite ses sources.",
     "placeholder": "Ex. Comment révise-t-on un roulement de boîtes d'essieux ?",
     "send": "Envoyer",
     "stop": "Interrompre",
     "hint": "Entrée pour envoyer · Maj + Entrée pour un retour à la ligne",
     "you": "Vous",
-    "assistant": "Assistant CAMRAIL",
+    "assistant": "Assistant KALATI",
     "scopes": "Périmètres métier",
     "scopesAll": "Tous les périmètres",
     "scopesHint": "Restreindre la recherche accélère la réponse.",
@@ -92,7 +92,7 @@
       "generation": "Rédaction de la réponse",
       "validation": "Vérification de la fidélité aux sources"
     },
-    "title": "Assistant CAMRAIL",
+    "title": "Assistant KALATI",
     "scopeCount": "{{count}} périmètres"
   },
   "answer": {
@@ -119,7 +119,7 @@
     "title": "Réponse non restituée",
     "corpus": "Je ne dispose pas d'une réponse suffisamment documentée dans le corpus KALATI pour cette question. Veuillez consulter directement le service compétent ou vous référer au portail KALATI.",
     "low_faithfulness": "La réponse rédigée n'était pas suffisamment ancrée dans les documents récupérés (fidélité {{score}}, seuil requis {{threshold}}). KALATI préfère ne pas répondre plutôt que de produire un contenu non sourcé.",
-    "low_confidence": "Les passages récupérés dans la documentation CAMRAIL ne sont pas assez pertinents pour fonder une réponse fiable, même après reformulation de la question.",
+    "low_confidence": "Les passages récupérés dans la documentation indexée ne sont pas assez pertinents pour fonder une réponse fiable, même après reformulation de la question.",
     "out_of_scope": "Cette question sort du périmètre documentaire couvert par KALATI.",
     "not_authorised": "Cette information n'est pas disponible dans le corpus KALATI accessible à votre niveau d'habilitation.",
     "nearest": "Passages les plus proches trouvés dans le corpus",
@@ -163,7 +163,7 @@
     "model": "Modèle de raisonnement indisponible : cette réponse a été produite par le modèle léger. Sur une question complexe, vérifiez les sources avec attention."
   },
   "offline": {
-    "banner": "Connexion à l'intranet CAMRAIL perdue. Vos questions sont mises en file d'attente et seront envoyées au rétablissement.",
+    "banner": "Connexion à l'intranet perdue. Vos questions sont mises en file d'attente et seront envoyées au rétablissement.",
     "queued": "{{count}} question en attente",
     "queued_plural": "{{count}} questions en attente",
     "restored": "Connexion rétablie — envoi de la file d'attente.",
@@ -478,7 +478,7 @@
     "deleteAccount": "Supprimer le compte",
     "deleteAccountBody": "La suppression d’un compte agent est prononcée par l’administration. Votre demande est transmise avec vos journaux d’accès ; vos conversations sont supprimées à la clôture.",
     "deleteAccountAction": "Demander la suppression",
-    "deleteAccountConfirm": "Confirmez-vous la demande de suppression de votre compte ? Elle sera transmise à l’administration CAMRAIL.",
+    "deleteAccountConfirm": "Confirmez-vous la demande de suppression de votre compte ? Elle sera transmise à l’administration.",
     "deleteAsked": "Demande transmise à l’administration."
   },
   "scopes": {
@@ -494,8 +494,8 @@
     "TRANSPORT": "Comment cantonner un train ?",
     "RH": "Quelle est la procédure disciplinaire du personnel en vigueur ?",
     "JURIDIQUE": "Quelle est l'échéance du contrat de concession ferroviaire ?",
-    "FINANCE": "Quel est le taux de TVA en vigueur au Cameroun en 2026 ?",
-    "COMMERCIAL": "Quelles sont les conditions générales de vente à CAMRAIL ?"
+    "FINANCE": "Quel est le taux de TVA en vigueur en 2026 ?",
+    "COMMERCIAL": "Quelles sont les conditions générales de transport des marchandises ?"
   },
   "health": {
     "degraded": "Service dégradé : un composant du système est indisponible. L'historique reste consultable.",
@@ -530,6 +530,6 @@
   },
   "support": {
     "contact": "Contacter le support technique",
-    "subject": "Assistant documentaire CAMRAIL — demande de support"
+    "subject": "Assistant documentaire KALATI : demande de support"
   }
 }

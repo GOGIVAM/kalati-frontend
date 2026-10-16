@@ -26,7 +26,7 @@ createRoot(container).render(
 
 // PWA : la coquille est mise en cache pour que l'interface se charge hors ligne
 // et affiche l'indicateur de connexion perdue. Aucune donnée d'API n'est cachée.
-if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+if (import.meta.env.PROD && import.meta.env.MODE !== 'demo' && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     void navigator.serviceWorker.register('/sw.js').catch(() => undefined);
   });

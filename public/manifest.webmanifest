@@ -1,7 +1,7 @@
 {
-  "name": "Assistant documentaire CAMRAIL",
-  "short_name": "Assistant CAMRAIL",
-  "description": "Assistant conversationnel documentaire intranet de CAMRAIL. Réponses sourcées sur le corpus documentaire indexé.",
+  "name": "Assistant documentaire KALATI (démo)",
+  "short_name": "KALATI",
+  "description": "Démonstration de l'assistant documentaire KALATI, données fictives. Réponses sourcées sur le corpus documentaire indexé.",
   "lang": "fr",
   "dir": "ltr",
   "start_url": "/",

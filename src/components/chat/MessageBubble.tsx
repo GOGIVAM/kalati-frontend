@@ -123,7 +123,7 @@ export function MessageBubble({ message }: { message: ChatMessage }) {
           </>
         ) : (
           <>
-            <img className="k-msg__logo" src="/logo1.png" alt="" aria-hidden="true" />
+            <img className="k-msg__logo" src="/logo.png" alt="" aria-hidden="true" />
             <span className="k-msg__name">{t('chat.assistant')}</span>
             {time ? <span className="k-msg__time">{time}</span> : null}
           </>

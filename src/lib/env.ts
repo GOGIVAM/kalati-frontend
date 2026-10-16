@@ -21,7 +21,7 @@ export const env = {
     contextRecall: num(import.meta.env.VITE_CONTEXT_RECALL_THRESHOLD, 0.8),
   },
   /** Boîte du support informatique CAMRAIL, jointe depuis la barre du haut. */
-  supportEmail: import.meta.env.VITE_SUPPORT_EMAIL ?? 'coordination.informatique@camrail.cm',
+  supportEmail: import.meta.env.VITE_SUPPORT_EMAIL ?? 'support@exemple.org',
   /** Interface vocale (Whisper ASR + Coqui TTS côté serveur). */
   voiceEnabled: (import.meta.env.VITE_VOICE_ENABLED ?? 'true') !== 'false',
 } as const;

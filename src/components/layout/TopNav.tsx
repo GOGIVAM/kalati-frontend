@@ -60,7 +60,7 @@ export function TopNav() {
       </Button>
 
       <Link to="/" className="k-nav__brand" onClick={closeOverlays}>
-        <img className="k-nav__logo" src="/logo1.png" alt="CAMRAIL" />
+        <img className="k-nav__logo" src="/logo.png" alt="KALATI" />
         <span className="k-nav__sub">{t('app.tagline')}</span>
       </Link>
 

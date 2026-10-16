@@ -108,7 +108,7 @@ export function ChatPage() {
         <div className="k-chat k-chat--empty">
           <div className="k-chat__pad">
           <div className="k-hero">
-            <img className="k-hero__logo" src="/logo1.png" alt="CAMRAIL" />
+            <img className="k-hero__logo" src="/logo.png" alt="KALATI" />
             <h1 className="k-hero__title">{t('chat.emptyTitle')}</h1>
             <p className="k-hero__lead">{t('chat.emptyBody')}</p>
 
