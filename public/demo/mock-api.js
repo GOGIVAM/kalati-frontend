@@ -532,7 +532,7 @@
         var res = answer(q[0], profileOf(agent), q[1]);
         // Latence : tirée dans le budget de conception du dossier (4-5 s simple, 14-15 s multi-hop), pas une mesure.
         var lat = res.queryClass === 'multi_hop' ? 14000 + Math.floor(rnd() * 1000) : 4000 + Math.floor(rnd() * 1000);
-        var ts = NOW - day * DAY + Math.floor((7 + rnd() * 10) * 3600000);
+        var ts = NOW - day * DAY + Math.floor((7 + (k + rnd()) * 10 / n) * 3600000);
         prev = makeEntry(prev, ts, agent, q[0], q[1], res, lat);
         list.push(prev);
       }
